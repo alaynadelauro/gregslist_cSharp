@@ -20,3 +20,23 @@ CREATE TABLE
         description varchar(500) NOT NULL,
         price INT NOT NULL
     )
+
+SELECT * FROM houses;
+
+INSERT INTO
+    houses (
+        name,
+        sqft,
+        bedrooms,
+        bathrooms,
+        description,
+        price
+    )
+VALUES (
+        'Cute Home',
+        400,
+        4,
+        2,
+        'A lovely little home that is totally not here to test you',
+        100
+    );
