@@ -44,4 +44,17 @@ public class HousesController(HousesService housesService) : ControllerBase
             return BadRequest(error);
         }
     }
+    [HttpPut("{houseId}")]
+    public ActionResult<House> UpdateHouse(int houseId, [FromBody] House houseData)
+    {
+        try
+        {
+            House house = _housesService.UpdateHouse(houseId, houseData);
+            return Ok(house);
+        }
+        catch (Exception error)
+        {
+            return BadRequest(error);
+        }
+    }
 }

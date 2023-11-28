@@ -20,6 +20,17 @@ public class HousesRepository(IDbConnection db)
         SELECT * FROM houses WHERE id = LAST_INSERT_ID();";
         House house = _db.Query<House>(sql, houseData).FirstOrDefault();
         return house;
-
+    }
+    internal void UpdateHouse(House foundHouse)
+    {
+        string sql = @"UPDATE houses SET
+        name = @Name,
+        sqft = @Sqft,
+        bedrooms = @Bedrooms,
+        bathrooms = @Bathrooms,
+        description = @Description,
+        price = @Price
+        WHERE id = @ID;";
+        _db.Execute(sql, foundHouse);
     }
 }
