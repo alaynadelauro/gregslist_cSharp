@@ -12,4 +12,9 @@ public class HousesService(HousesRepository housesRepository)
         House house = _repository.GetHouseById(houseId);
         return house;
     }
+    internal House AddHouse(House HouseData)
+    {
+        House house = _repository.AddHouse(HouseData);
+        return house;
+    }
 }

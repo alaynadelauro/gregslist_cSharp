@@ -31,4 +31,17 @@ public class HousesController(HousesService housesService) : ControllerBase
             return BadRequest(error);
         }
     }
+    [HttpPost]
+    public ActionResult<House> AddHouse([FromBody] House houseData)
+    {
+        try
+        {
+            House house = _housesService.AddHouse(houseData);
+            return house;
+        }
+        catch (Exception error)
+        {
+            return BadRequest(error);
+        }
+    }
 }

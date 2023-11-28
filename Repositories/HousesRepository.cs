@@ -14,4 +14,12 @@ public class HousesRepository(IDbConnection db)
         House house = _db.Query<House>(sql, new { houseId }).FirstOrDefault();
         return house;
     }
+    internal House AddHouse(House houseData)
+    {
+        string sql = @"INSERT INTO houses(name, sqft, bedrooms, bathrooms, description, price) Values (@Name, @Sqft, @Bedrooms, @Bathrooms, @Description, @Price);
+        SELECT * FROM houses WHERE id = LAST_INSERT_ID();";
+        House house = _db.Query<House>(sql, houseData).FirstOrDefault();
+        return house;
+
+    }
 }
