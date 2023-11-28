@@ -29,4 +29,10 @@ public class HousesService(HousesRepository housesRepository)
         _repository.UpdateHouse(foundHouse);
         return foundHouse;
     }
+    internal House RemoveHouse(int houseId)
+    {
+        House house = GetHouseById(houseId);
+        _repository.RemoveHouse(houseId);
+        return house;
+    }
 }

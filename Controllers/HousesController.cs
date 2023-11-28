@@ -57,4 +57,17 @@ public class HousesController(HousesService housesService) : ControllerBase
             return BadRequest(error);
         }
     }
+    [HttpDelete("{houseId}")]
+    public ActionResult<House> RemoveHouse(int houseId)
+    {
+        try
+        {
+            House house = _housesService.RemoveHouse(houseId);
+            return house;
+        }
+        catch (Exception error)
+        {
+            return BadRequest(error);
+        }
+    }
 }

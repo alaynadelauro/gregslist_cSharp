@@ -33,4 +33,9 @@ public class HousesRepository(IDbConnection db)
         WHERE id = @ID;";
         _db.Execute(sql, foundHouse);
     }
+    internal void RemoveHouse(int houseId)
+    {
+        string sql = "DELETE FROM houses WHERE id = @houseId;";
+        _db.Execute(sql, new { houseId });
+    }
 }
